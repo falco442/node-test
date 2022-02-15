@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table *ngIf="vacancies?.length" class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let vacancy of vacancies">
+          <th scope="row">{{vacancy?.id}}</th>
+          <td>{{vacancy?.company?.name}}</td>
+          <td>
+            <button (click)="candidateTo(vacancy)" class="btn btn-primary" type="button">Candidati</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

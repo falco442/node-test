@@ -1,8 +1,12 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
+import {VacancyListComponent} from "./vacancy-list/vacancy-list.component";
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', redirectTo: 'vacancies'},
+  {path: 'vacancies', component: VacancyListComponent}
+];
 
 @NgModule({
   declarations: [],
