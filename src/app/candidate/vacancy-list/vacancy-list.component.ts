@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Vacancy} from "../../models/vacancy";
+import {MockService} from "../../mock.service";
+import {AlertService} from "../../alert.service";
 
 @Component({
   selector: 'app-vacancy-list',
@@ -10,14 +12,18 @@ export class VacancyListComponent implements OnInit {
 
   vacancies?: Vacancy[];
 
-  constructor() {
+  constructor(
+    private mockService: MockService,
+    private alert: AlertService
+  ) {
   }
 
   ngOnInit(): void {
   }
 
   candidateTo(vacancy: Vacancy) {
-
+    this.mockService.post(vacancy)
+      .subscribe(() => this.alert.success('Candidatura effettuata'));
   }
 
 }
