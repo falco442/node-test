@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Routes} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 import {CandidateNewComponent} from "./candidate-new/candidate-new.component";
 import {CompanyNewComponent} from "./company-new/company-new.component";
 import {VacancyNewComponent} from "./vacancy-new/vacancy-new.component";
@@ -14,8 +14,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    RouterModule.forChild(routes)
+  ],
+  exports: [RouterModule]
 })
 export class BackOfficeRoutingModule {
 }

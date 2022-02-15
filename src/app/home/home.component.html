@@ -1,1 +1,16 @@
-<p>home works!</p>
+<div class="container my-5">
+  <div class="row">
+    <div *ngFor="let link of links" class="col-4">
+      <div class="card" style="width: 18rem;">
+        <!--        <img src="..." class="card-img-top" alt="...">-->
+        <div class="card-body text-center">
+          <h5 class="card-title">{{link.text}}</h5>
+          <p class="card-text text-center">
+            <fa-icon [icon]="link.icon" [size]="'3x'"></fa-icon>
+          </p>
+          <a [routerLink]="link.route" class="btn btn-primary">Vai</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
