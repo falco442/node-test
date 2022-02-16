@@ -19,6 +19,12 @@ export class VacancyListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getVacancies();
+  }
+
+  getVacancies() {
+    this.mockService.get<Vacancy[]>('vacancies')
+      .subscribe(v => console.log(v));
   }
 
   candidateTo(vacancy: Vacancy) {

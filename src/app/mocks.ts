@@ -3,14 +3,14 @@ import {Vacancy} from "./models/vacancy";
 import {Candidate} from "./models/candidate";
 import {User} from "./models/user";
 
-export const companies: Company[] = [
+const companies: Company[] = [
   {id: 1, name: 'Enterprise'},
   {id: 2, name: 'BigData SRC'},
   {id: 3, name: 'Helios Inc.'},
   {id: 4, name: 'Microsoft'},
 ];
 
-export const vacancies: Vacancy[] = [
+const vacancies: Vacancy[] = [
   {id: 1, company: companies[0], description: 'Sviluppatore frontend'},
   {id: 2, company: companies[1], description: 'Sviluppatore backend'},
   {id: 3, company: companies[1], description: 'Sviluppatore fullstack'},
@@ -22,13 +22,20 @@ export const vacancies: Vacancy[] = [
   {id: 9, company: companies[3], description: 'Sviluppatore frontend React'},
 ];
 
-export const candidates: Candidate[] = [
+const candidates: Candidate[] = [
   {firstName: 'Luigi', lastName: 'Pirelli', birthDate: '1982-02-06'},
   {firstName: 'Mario', lastName: 'Rossi', birthDate: '1964-06-07'},
   {firstName: 'Paolo', lastName: 'Bonelli', birthDate: '1993-12-12'},
   {firstName: 'Gianluigi', lastName: 'Scatti', birthDate: '1998-03-12'},
 ];
 
-export const users: User[] = [
+const users: User[] = [
   {username: 'Utente collegato'}
 ];
+
+export const mock: { [key: string]: any } = {
+  companies: companies,
+  users: users,
+  candidates: candidates,
+  vacancies: vacancies
+};
