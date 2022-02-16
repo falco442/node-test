@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {first, Observable, of} from "rxjs";
+import {Observable, of} from "rxjs";
 import {mock} from './mocks';
 
 @Injectable({
@@ -16,8 +16,7 @@ export class MockService {
 
   first<T>(pathString: string): Observable<T> {
     const path = pathString.split('/');
-    return of(mock[path[0]])
-      .pipe(first());
+    return of(mock[path[0]][0]);
   }
 
   post(route?: any, body?: any): Observable<any> {

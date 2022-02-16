@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
 import {MockService} from "../../mock.service";
@@ -11,7 +11,7 @@ import {AlertService} from "../../alert.service";
   templateUrl: './company-profile.component.html',
   styleUrls: ['./company-profile.component.scss']
 })
-export class CompanyProfileComponent implements OnInit {
+export class CompanyProfileComponent implements OnInit, OnDestroy {
 
   subscription = new Subscription();
   logged: boolean = false;
@@ -32,11 +32,12 @@ export class CompanyProfileComponent implements OnInit {
 
     this.subscription.add(
       this.activatedRoute.data.subscribe((data: any) => {
-        console.log(data);
         if (data.logged) {
           this.logged = data.logged;
-          this.mockService.first<Company>('companies')
-            .subscribe((data: Company) => this.fg.patchValue(data));
+          this.subscription.add(
+            this.mockService.first<Company>('companies')
+              .subscribe((data: Company) => this.fg.patchValue(data))
+          );
         }
       })
     );
@@ -48,6 +49,10 @@ export class CompanyProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

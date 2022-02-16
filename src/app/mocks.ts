@@ -4,10 +4,10 @@ import {Candidate} from "./models/candidate";
 import {User} from "./models/user";
 
 const companies: Company[] = [
-  {id: 1, name: 'Enterprise'},
-  {id: 2, name: 'BigData SRC'},
-  {id: 3, name: 'Helios Inc.'},
-  {id: 4, name: 'Microsoft'},
+  {id: 1, name: 'Enterprise', email: 'ent@gmail.com'},
+  {id: 2, name: 'BigData SRC', email: 'BG@bigdata.com'},
+  {id: 3, name: 'Helios Inc.', email: 'heliosinc@me.com'},
+  {id: 4, name: 'Microsoft', email: 'microsoftservice@microsoft.com'},
 ];
 
 const vacancies: Vacancy[] = [
