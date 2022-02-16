@@ -1,0 +1,7 @@
+<pagination (pageChanged)="changePage($event)" *ngIf="totalItems" [itemsPerPage]="itemsPerPage" [ngModel]="currentPage"
+            [totalItems]="totalItems"></pagination>
+
+<ng-container *ngTemplateOutlet="templateRef"></ng-container>
+
+<pagination (pageChanged)="changePage($event)" *ngIf="totalItems" [itemsPerPage]="itemsPerPage" [ngModel]="currentPage"
+            [totalItems]="totalItems"></pagination>

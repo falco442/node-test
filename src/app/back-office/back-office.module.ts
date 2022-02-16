@@ -9,6 +9,7 @@ import {TabsModule} from "ngx-bootstrap/tabs";
 import {ReactiveFormsModule} from "@angular/forms";
 import {CompanyModule} from "../company/company.module";
 import {ApplyListComponent} from './apply-list/apply-list.component';
+import {FeaturesModule} from "../features/features.module";
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {ApplyListComponent} from './apply-list/apply-list.component';
     BackOfficeRoutingModule,
     TabsModule,
     ReactiveFormsModule,
-    CompanyModule
+    CompanyModule,
+    FeaturesModule
   ]
 })
 export class BackOfficeModule {

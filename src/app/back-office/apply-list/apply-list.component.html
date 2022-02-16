@@ -1,1 +1,28 @@
-<p>apply-list works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <ng-template #templateRef>
+        <table *ngIf="pag && pag.data" class="table">
+          <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Candidato</th>
+            <th scope="col">Azienda</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let apply of pag.data">
+            <th scope="row">{{apply.id}}</th>
+            <td>{{apply?.candidate?.firstName}} {{apply?.candidate?.lastName}}</td>
+            <td>{{apply?.company?.name}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </ng-template>
+
+      <app-custom-pagination (pageChanged)="pageChanged($event)" *ngIf="pag && pag.totalItems"
+                             [templateRef]="templateRef" [totalItems]="pag.totalItems"></app-custom-pagination>
+
+    </div>
+  </div>
+</div>
