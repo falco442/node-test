@@ -1,1 +1,23 @@
-<p>candidate-new works!</p>
+<div class="container my-3">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 col-sm-12">
+      <form [formGroup]="fg">
+        <div class="mb-3">
+          <label class="form-label" for="firstName">Nome</label>
+          <input class="form-control" formControlName="firstName" id="firstName">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="lastName">Cognome</label>
+          <input class="form-control" formControlName="lastName" id="lastName">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="birthDate">Data di nascita</label>
+          <input class="form-control" formControlName="birthDate" id="birthDate" type="date">
+        </div>
+
+        <button [disabled]="fg.invalid" class="btn btn-primary" type="submit">Iscrivi</button>
+      </form>
+    </div>
+  </div>
+</div>

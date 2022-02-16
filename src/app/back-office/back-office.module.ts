@@ -4,17 +4,23 @@ import {BackOfficeRoutingModule} from "./back-office-routing.module";
 import {CandidateNewComponent} from './candidate-new/candidate-new.component';
 import {CompanyNewComponent} from './company-new/company-new.component';
 import {VacancyNewComponent} from './vacancy-new/vacancy-new.component';
+import {BackOfficeGeneralComponent} from './back-office-general/back-office-general.component';
+import {TabsModule} from "ngx-bootstrap/tabs";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
     CandidateNewComponent,
     CompanyNewComponent,
-    VacancyNewComponent
+    VacancyNewComponent,
+    BackOfficeGeneralComponent,
   ],
   imports: [
     CommonModule,
-    BackOfficeRoutingModule
+    BackOfficeRoutingModule,
+    TabsModule,
+    ReactiveFormsModule
   ]
 })
 export class BackOfficeModule {

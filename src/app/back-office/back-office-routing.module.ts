@@ -4,11 +4,19 @@ import {RouterModule, Routes} from "@angular/router";
 import {CandidateNewComponent} from "./candidate-new/candidate-new.component";
 import {CompanyNewComponent} from "./company-new/company-new.component";
 import {VacancyNewComponent} from "./vacancy-new/vacancy-new.component";
+import {BackOfficeGeneralComponent} from "./back-office-general/back-office-general.component";
 
 const routes: Routes = [
-  {path: 'candidate-new', component: CandidateNewComponent},
-  {path: 'company-new', component: CompanyNewComponent},
-  {path: 'vacancy-new', component: VacancyNewComponent},
+  {
+    path: '',
+    component: BackOfficeGeneralComponent,
+    children: [
+      {path: '', redirectTo: 'candidate-new'},
+      {path: 'candidate-new', component: CandidateNewComponent},
+      {path: 'company-new', component: CompanyNewComponent},
+      {path: 'vacancy-new', component: VacancyNewComponent},
+    ]
+  }
 ];
 
 @NgModule({

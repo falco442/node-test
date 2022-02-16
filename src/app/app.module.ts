@@ -8,6 +8,7 @@ import {HomeComponent} from './home/home.component';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {AlertComponent} from './alert/alert.component';
 import {ModalModule} from "ngx-bootstrap/modal";
+import {TabsModule} from "ngx-bootstrap/tabs";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {ModalModule} from "ngx-bootstrap/modal";
     AppRoutingModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    TabsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
