@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AlertService} from "../../alert.service";
 
 @Component({
   selector: 'app-candidate-new',
@@ -10,7 +11,10 @@ export class CandidateNewComponent implements OnInit {
 
   fg: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private alert: AlertService
+  ) {
     this.fg = fb.group({
       firstName: [null, [Validators.required]],
       lastName: [null, [Validators.required]],
@@ -19,6 +23,10 @@ export class CandidateNewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  submit() {
+    this.alert.success();
   }
 
 }
