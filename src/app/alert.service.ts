@@ -11,7 +11,7 @@ export class AlertService {
   constructor() {
   }
 
-  success(message?: string, title?: string) {
+  success(message: string = 'Operazione effettuata', title: string = 'Operazione effettuata') {
     this.showSubj.next({
       title: title,
       message: message

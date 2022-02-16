@@ -24,7 +24,7 @@ export class VacancyListComponent implements OnInit {
 
   getVacancies() {
     this.mockService.get<Vacancy[]>('vacancies')
-      .subscribe(v => console.log(v));
+      .subscribe((vacancies: Vacancy[]) => this.vacancies = vacancies);
   }
 
   candidateTo(vacancy: Vacancy) {

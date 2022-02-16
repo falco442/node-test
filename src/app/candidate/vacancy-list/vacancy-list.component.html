@@ -5,15 +5,16 @@
         <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">Nome società</th>
+          <th scope="col">Descrizione</th>
+          <th scope="col">Candidatura</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let vacancy of vacancies">
           <th scope="row">{{vacancy?.id}}</th>
           <td>{{vacancy?.company?.name}}</td>
+          <td>{{vacancy?.description}}</td>
           <td>
             <button (click)="candidateTo(vacancy)" class="btn btn-primary" type="button">Candidati</button>
           </td>
