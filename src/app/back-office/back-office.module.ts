@@ -8,6 +8,7 @@ import {BackOfficeGeneralComponent} from './back-office-general/back-office-gene
 import {TabsModule} from "ngx-bootstrap/tabs";
 import {ReactiveFormsModule} from "@angular/forms";
 import {CompanyModule} from "../company/company.module";
+import {ApplyListComponent} from './apply-list/apply-list.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {CompanyModule} from "../company/company.module";
     CompanyNewComponent,
     VacancyNewComponent,
     BackOfficeGeneralComponent,
+    ApplyListComponent,
   ],
   imports: [
     CommonModule,

@@ -5,6 +5,7 @@ import {CandidateNewComponent} from "./candidate-new/candidate-new.component";
 import {CompanyNewComponent} from "./company-new/company-new.component";
 import {VacancyNewComponent} from "./vacancy-new/vacancy-new.component";
 import {BackOfficeGeneralComponent} from "./back-office-general/back-office-general.component";
+import {ApplyListComponent} from "./apply-list/apply-list.component";
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
       {path: 'candidate-new', component: CandidateNewComponent},
       {path: 'company-new', component: CompanyNewComponent},
       {path: 'vacancy-new', component: VacancyNewComponent},
+      {path: 'apply-list', component: ApplyListComponent},
     ]
   }
 ];
