@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AlertService} from "../../alert.service";
 
 @Component({
   selector: 'app-company-new',
@@ -7,10 +8,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class CompanyNewComponent implements OnInit {
 
-  constructor() {
+  constructor(private alert: AlertService) {
   }
 
   ngOnInit(): void {
+  }
+
+  submit(data: any) {
+    this.alert.success();
   }
 
 }

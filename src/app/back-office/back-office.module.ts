@@ -7,6 +7,7 @@ import {VacancyNewComponent} from './vacancy-new/vacancy-new.component';
 import {BackOfficeGeneralComponent} from './back-office-general/back-office-general.component';
 import {TabsModule} from "ngx-bootstrap/tabs";
 import {ReactiveFormsModule} from "@angular/forms";
+import {CompanyModule} from "../company/company.module";
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     CommonModule,
     BackOfficeRoutingModule,
     TabsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CompanyModule
   ]
 })
 export class BackOfficeModule {
