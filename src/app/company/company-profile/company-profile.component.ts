@@ -38,8 +38,10 @@ export class CompanyProfileComponent implements OnInit, OnDestroy {
   }
 
   submit(data: any) {
-    this.mockService.post(data)
-      .subscribe(() => this.alert.success());
+    this.subscription.add(
+      this.mockService.post(data)
+        .subscribe(() => this.alert.success())
+    );
   }
 
   ngOnInit(): void {

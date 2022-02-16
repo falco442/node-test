@@ -36,6 +36,7 @@ export class CompanyFormComponent implements OnInit, OnChanges {
 
   submit() {
     this.submitEmitter.emit(this.fg.getRawValue());
+    this.fg.reset();
   }
 
 }

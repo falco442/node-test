@@ -1,1 +1,21 @@
-<p>vacancy-new works!</p>
+<div class="container my-3">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 col-sm-12">
+      <form (ngSubmit)="submit()" [formGroup]="fg">
+        <div class="mb-3">
+          <label class="form-label" for="company">Azienda</label>
+          <select class="form-control" formControlName="company" id="company">
+            <option></option>
+            <option *ngFor="let company of companies" [ngValue]="company">{{company.name}}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="description">Descrizione</label>
+          <textarea class="form-control" formControlName="description" id="description" rows="5"></textarea>
+        </div>
+
+        <button [disabled]="fg.invalid" class="btn btn-primary" type="submit">Aggiungi</button>
+      </form>
+    </div>
+  </div>
+</div>
