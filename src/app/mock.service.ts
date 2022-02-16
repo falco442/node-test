@@ -30,8 +30,20 @@ export class MockService {
     return of(true);
   }
 
-  getApplyHistory(page: number, itemNumber: number): Observable<PaginationMod<Apply>> {
-    const data: Apply[] = this.applies.slice((page - 1) * itemNumber, page * itemNumber);
+  getApplyHistory(page: number, itemNumber: number, searchData?: any): Observable<PaginationMod<Apply>> {
+    let applies: Apply[] = this.applies;
+    if (searchData) {
+      applies = this.applies.filter((apply: Apply) => {
+        if (searchData.companyId && !(apply.company && apply.company.id === searchData.companyId)) {
+          return false;
+        }
+        if (searchData.candidateId && !(apply.candidate && apply.candidate.id === searchData.candidateId)) {
+          return false;
+        }
+        return true;
+      });
+    }
+    const data: Apply[] = applies.slice((page - 1) * itemNumber, page * itemNumber);
     const pag: PaginationMod<Apply> = {
       data: data,
       totalItems: this.applies.length

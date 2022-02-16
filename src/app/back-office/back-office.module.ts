@@ -10,6 +10,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {CompanyModule} from "../company/company.module";
 import {ApplyListComponent} from './apply-list/apply-list.component';
 import {FeaturesModule} from "../features/features.module";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {FeaturesModule} from "../features/features.module";
     TabsModule,
     ReactiveFormsModule,
     CompanyModule,
-    FeaturesModule
+    FeaturesModule,
+    FontAwesomeModule
   ]
 })
 export class BackOfficeModule {

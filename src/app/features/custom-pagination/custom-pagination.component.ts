@@ -20,6 +20,7 @@ export class CustomPaginationComponent implements OnInit {
   @Output('pageChanged')
   pageChangedEmitter = new EventEmitter<PageChangedEvent>();
 
+  @Input()
   currentPage: number = 1;
 
   constructor() {

@@ -1,4 +1,30 @@
 <div class="container">
+  <div class="row mb-3">
+    <form (ngSubmit)="getApplies(searchForm.getRawValue())" [formGroup]="searchForm" class="row">
+      <div class="col-sm-4">
+        <label>Candidato</label>
+        <select class="form-control" formControlName="candidateId">
+          <option></option>
+          <option *ngFor="let candidate of candidates"
+                  [ngValue]="candidate.id">{{candidate.firstName}} {{candidate.lastName}}</option>
+        </select>
+      </div>
+      <div class="col-sm-4">
+        <label>Azienda</label>
+        <select class="form-control" formControlName="companyId">
+          <option></option>
+          <option *ngFor="let company of companies" [ngValue]="company.id">{{company.name}}</option>
+        </select>
+      </div>
+      <div class="col-sm-4 pt-4">
+        <button class="btn btn-primary">Cerca</button>
+        <button (click)="page = 1; searchForm.reset(); getApplies()" class="btn btn-outline-primary ms-2" type="reset">
+          Reimposta
+        </button>
+      </div>
+    </form>
+  </div>
+
   <div class="row">
     <div class="col-12">
       <ng-template #templateRef>
@@ -20,7 +46,7 @@
         </table>
       </ng-template>
 
-      <app-custom-pagination (pageChanged)="pageChanged($event)" *ngIf="pag && pag.totalItems"
+      <app-custom-pagination (pageChanged)="pageChanged($event)" *ngIf="pag && pag.totalItems" [currentPage]="page"
                              [templateRef]="templateRef" [totalItems]="pag.totalItems"></app-custom-pagination>
 
     </div>

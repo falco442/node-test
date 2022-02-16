@@ -23,10 +23,10 @@ const vacancies: Vacancy[] = [
 ];
 
 const candidates: Candidate[] = [
-  {firstName: 'Luigi', lastName: 'Pirelli', birthDate: '1982-02-06'},
-  {firstName: 'Mario', lastName: 'Rossi', birthDate: '1964-06-07'},
-  {firstName: 'Paolo', lastName: 'Bonelli', birthDate: '1993-12-12'},
-  {firstName: 'Gianluigi', lastName: 'Scatti', birthDate: '1998-03-12'},
+  {id: 1, firstName: 'Luigi', lastName: 'Pirelli', birthDate: '1982-02-06'},
+  {id: 2, firstName: 'Mario', lastName: 'Rossi', birthDate: '1964-06-07'},
+  {id: 3, firstName: 'Paolo', lastName: 'Bonelli', birthDate: '1993-12-12'},
+  {id: 4, firstName: 'Gianluigi', lastName: 'Scatti', birthDate: '1998-03-12'},
 ];
 
 const users: User[] = [
