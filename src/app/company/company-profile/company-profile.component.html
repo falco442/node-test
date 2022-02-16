@@ -1,0 +1,28 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-12 d-flex flex-row justify-content-center">
+      <div>
+        <a *ngIf="!logged" [routerLink]="'/company/profile'" class="btn btn-primary">Profilo</a>
+        <a *ngIf="logged" [routerLink]="'/company/register'" class="btn btn-primary">Registrazione</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3 col-sm-12">
+      <form (ngSubmit)="submit()" [formGroup]="fg">
+        <div class="mb-3">
+          <label class="form-label" for="name">Nome</label>
+          <input class="form-control" formControlName="name" id="name" type="text">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-control" formControlName="email" id="email" type="email">
+        </div>
+
+        <button [disabled]="fg.invalid" class="btn btn-primary" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

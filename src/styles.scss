@@ -5,3 +5,11 @@
 
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+.ng-invalid:not(.ng-untouched) {
+  @extend .is-invalid;
+}
+
+.ng-valid:not(.ng-untouched) {
+  @extend .is-valid;
+}

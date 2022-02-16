@@ -7,6 +7,7 @@ const routes: Routes = [
   {path: 'home', redirectTo: ''},
   {path: 'candidate', loadChildren: () => import('./candidate/candidate.module').then(m => m.CandidateModule)},
   {path: 'back-office', loadChildren: () => import('./back-office/back-office.module').then(m => m.BackOfficeModule)},
+  {path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule)},
 ];
 
 @NgModule({
