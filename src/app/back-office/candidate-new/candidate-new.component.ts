@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AlertService} from "../../alert.service";
+import {MockService} from "../../mock.service";
 
 @Component({
   selector: 'app-candidate-new',
@@ -13,7 +14,8 @@ export class CandidateNewComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private alert: AlertService
+    private alert: AlertService,
+    private mock: MockService
   ) {
     this.fg = fb.group({
       firstName: [null, [Validators.required]],
@@ -26,7 +28,11 @@ export class CandidateNewComponent implements OnInit {
   }
 
   submit() {
-    this.alert.success();
+    this.mock.post()
+      .subscribe(() => {
+        this.alert.success();
+        this.fg.reset();
+      });
   }
 
 }

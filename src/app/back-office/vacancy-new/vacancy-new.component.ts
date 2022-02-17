@@ -44,8 +44,11 @@ export class VacancyNewComponent implements OnInit, OnDestroy {
   }
 
   submit() {
-    this.alert.success();
-    this.fg.reset();
+    this.mock.post()
+      .subscribe(() => {
+        this.alert.success();
+        this.fg.reset();
+      });
   }
 
 }

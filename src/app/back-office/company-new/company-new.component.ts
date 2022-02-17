@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AlertService} from "../../alert.service";
+import {MockService} from "../../mock.service";
 
 @Component({
   selector: 'app-company-new',
@@ -8,14 +9,18 @@ import {AlertService} from "../../alert.service";
 })
 export class CompanyNewComponent implements OnInit {
 
-  constructor(private alert: AlertService) {
+  constructor(
+    private alert: AlertService,
+    private mock: MockService
+  ) {
   }
 
   ngOnInit(): void {
   }
 
   submit(data: any) {
-    this.alert.success();
+    this.mock.post()
+      .subscribe(() => this.alert.success());
   }
 
 }
