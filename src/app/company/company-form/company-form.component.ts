@@ -14,6 +14,9 @@ export class CompanyFormComponent implements OnInit, OnChanges {
   @Input()
   company?: Company;
 
+  @Input()
+  reset: boolean = true;
+
   @Output('submitted')
   submitEmitter = new EventEmitter<any>();
 
@@ -36,7 +39,10 @@ export class CompanyFormComponent implements OnInit, OnChanges {
 
   submit() {
     this.submitEmitter.emit(this.fg.getRawValue());
-    this.fg.reset();
+    if (this.reset) {
+      this.fg.reset();
+    }
+    this.fg.markAsUntouched();
   }
 
 }

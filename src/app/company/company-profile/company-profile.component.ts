@@ -16,6 +16,7 @@ export class CompanyProfileComponent implements OnInit, OnDestroy {
   subscription = new Subscription();
   logged: boolean = false;
   company?: Company;
+  reset: boolean = true;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -30,7 +31,10 @@ export class CompanyProfileComponent implements OnInit, OnDestroy {
           this.logged = data.logged;
           this.subscription.add(
             this.mockService.first<Company>('companies')
-              .subscribe((data: Company) => this.company = data)
+              .subscribe((data: Company) => {
+                this.company = data;
+                this.reset = false;
+              })
           );
         }
       })
