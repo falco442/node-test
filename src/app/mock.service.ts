@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from "rxjs";
+import {Observable} from "rxjs";
 import {mock} from './mocks';
 import {Apply} from "./models/apply";
 import {Candidate} from "./models/candidate";
 import {Company} from "./models/company";
 import {PaginationMod} from "./models/pagination-mod";
+import {NgxSpinnerService} from "ngx-spinner";
 
 @Injectable({
   providedIn: 'root'
@@ -13,21 +14,32 @@ export class MockService {
 
   applies: Apply[] = [];
 
-  constructor() {
+  constructor(private spinner: NgxSpinnerService) {
     this.buildApplies();
   }
 
+  generateRequest<T>(obj: T): Observable<T> {
+    this.spinner.show();
+    return new Observable<T>(obs => {
+      setTimeout(() => {
+        this.spinner.hide();
+        obs.next(obj);
+        obs.complete();
+      }, 500);
+    });
+  }
+
   get<T>(route: string): Observable<T> {
-    return of(mock[route]);
+    return this.generateRequest(mock[route]);
   }
 
   first<T>(pathString: string): Observable<T> {
     const path = pathString.split('/');
-    return of(mock[path[0]][0]);
+    return this.generateRequest(mock[path[0]][0]);
   }
 
   post(route?: any, body?: any): Observable<any> {
-    return of(true);
+    return this.generateRequest(true);
   }
 
   getApplyHistory(page: number, itemNumber: number, searchData?: any): Observable<PaginationMod<Apply>> {
@@ -48,7 +60,7 @@ export class MockService {
       data: data,
       totalItems: this.applies.length
     };
-    return of(pag);
+    return this.generateRequest(pag);
   }
 
   buildApplies() {
