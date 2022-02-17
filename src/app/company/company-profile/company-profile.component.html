@@ -1,16 +1,10 @@
 <div class="container my-5">
   <div class="row">
     <div class="col">
-      <h4 *ngIf="logged" class="text-center">Modifica il profilo della tua società</h4>
-      <h4 *ngIf="!logged" class="text-center">Iscriviti come nuova azienda</h4>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 d-flex flex-row justify-content-center">
-      <div>
-        <a *ngIf="!logged" [routerLink]="'/company/profile'" class="btn btn-primary">Profilo</a>
-        <a *ngIf="logged" [routerLink]="'/company/register'" class="btn btn-primary">Registrazione</a>
-      </div>
+      <h4 *ngIf="logged" class="text-center">Modifica il profilo della tua società o <a
+        [routerLink]="'/company/register'">iscriviti come nuova azienda</a></h4>
+      <h4 *ngIf="!logged" class="text-center">Iscriviti come nuova azienda o <a [routerLink]="'/company/profile'">entra
+        come azienda loggata</a> per modificare il profilo </h4>
     </div>
   </div>
 
